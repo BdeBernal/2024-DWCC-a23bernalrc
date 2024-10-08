@@ -100,3 +100,61 @@ function calcularDescuento(precio, porcentaje) {
 }
 
 console.log(calcularDescuento(8, 10));
+
+//Exercise 1 Strings
+const cadea = 'desenvolvemento web';
+
+let novaCadea = cadea.replace("d", "D");
+
+console.log(novaCadea);
+
+//Exercise 2 Strings
+function invertirCadea(cadena) {
+    return cadena.split('').toString();
+}
+
+console.log(invertirCadea("cadena"));
+
+//Exercise 3 Strings
+function enmascarar(cadenaNumeros) {
+    return cadenaNumeros.slice(-4).padStart(12, "*");
+}
+console.log(enmascarar("1234123412347777"));
+
+//Exercise 1 numbers
+function cifrasNumero(numero){
+    return numero.toString().trim().length;
+}
+
+console.log(cifrasNumero(77));
+
+//Exercise 1 Math
+console.log(Math.floor(Math.random() * 4));
+console.log(Math.floor(Math.random() * 3) + 1);
+
+function numeroAleatorio(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+console.log(numeroAleatorio(5, 10));
+
+//Exercise 2 Math
+function devolverHorasyMinutos(numero) {
+    let horas = numero / 60;
+    let minutos = numero % 60;
+    let cadena = Math.floor(horas) + " horas y " + minutos + " minutos";
+    return cadena;
+}
+
+console.log(devolverHorasyMinutos(185));
+
+//Exercise 3 Math
+function areaCirculo(radio) {
+    return Math.PI * (radio ** 2);
+}
+
+function perimetroCiruclo(radio) {
+    return Math.PI * radio * 2;
+}
+
+console.log("El área es = " + areaCirculo(4).toFixed(2) + " y el perímetro es = " + perimetroCiruclo(4).toFixed(2))
