@@ -110,14 +110,14 @@ console.log(novaCadea);
 
 //Exercise 2 Strings
 function invertirCadea(cadena) {
-    return cadena.split('').toString();
+    return cadena.split('').reverse().join('');
 }
 
 console.log(invertirCadea("cadena"));
 
 //Exercise 3 Strings
 function enmascarar(cadenaNumeros) {
-    return cadenaNumeros.slice(-4).padStart(12, "*");
+    return cadenaNumeros.slice(-4).padStart(cadenaNumeros.length, "*");
 }
 console.log(enmascarar("1234123412347777"));
 
@@ -158,3 +158,44 @@ function perimetroCiruclo(radio) {
 }
 
 console.log("El área es = " + areaCirculo(4).toFixed(2) + " y el perímetro es = " + perimetroCiruclo(4).toFixed(2))
+
+//Exercise 1 Date
+//Exercise 2 Date
+//Exercise 3 Date
+//Exercise 4 Date
+
+//Exercise 1 Array
+function indices(elemento, array) {
+    let repetidos = [];
+    for (let indice = 0; indice <= array.length; indice++) {
+        if (array[indice] == elemento) {
+            repetidos.push(indice);
+        }
+    }
+    return repetidos;
+}
+
+const numeros = [2, 5, 3, 1, 0, 1];
+console.log(indices(1, numeros));
+
+//Exercise 2 Array
+const froitas = ['peras', 'mazás', 'kiwis', 'plátanos', 'mandarinas'];
+
+froitas.splice(1, 1);
+console.log(froitas);
+
+froitas.splice(3, 0, "laranxas", "sandías");
+console.log(froitas);
+
+froitas.splice(2, 1, 'cereixas', 'nesperas');
+console.log(froitas);
+
+//Exercise 3 Array
+function palabras(string) {
+    const array = string.split(" ");
+    for (let indice = 0; indice <= array.length; indice++){
+        
+    }
+}
+
+console.log(palabras("tinky Winky, dipsy, lala, Po"));
