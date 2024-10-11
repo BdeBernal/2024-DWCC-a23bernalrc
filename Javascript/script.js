@@ -133,7 +133,7 @@ console.log(Math.floor(Math.random() * 4));
 console.log(Math.floor(Math.random() * 3) + 1);
 
 function numeroAleatorio(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 console.log(numeroAleatorio(5, 10));
@@ -160,9 +160,42 @@ function perimetroCiruclo(radio) {
 console.log("El área es = " + areaCirculo(4).toFixed(2) + " y el perímetro es = " + perimetroCiruclo(4).toFixed(2))
 
 //Exercise 1 Date
+function mostrarDiaDeLaSemana() {
+    let data = new Date("2024-07-25");
+    const nomesDia = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+    console.log(nomesDia[data.getDay()]);
+}
+
+mostrarDiaDeLaSemana();
+
 //Exercise 2 Date
+function numeroDiaMes(mes, ano) {
+    let fecha = new Date(ano, mes, 0);
+    return fecha.getDate();
+}
+
+console.log(numeroDiaMes(2, 2024));
+
 //Exercise 3 Date
+function esFinDeSemana(data) {
+    if (data.getDay() == 0 || data.getDay() == 6) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(esFinDeSemana(new Date(2024, 9, 19)));
+
 //Exercise 4 Date
+function diasTranscurridos(data) {
+    let primerDiaAno = new Date(data.getFullYear(), 0, 1);
+
+    let diferencia = data - primerDiaAno;
+    return Math.floor(diferencia / (1000 * 3600 * 24) + 1);
+}
+
+console.log(diasTranscurridos(new Date(2024, 1, 12)));
 
 //Exercise 1 Array
 function indices(elemento, array) {
@@ -191,11 +224,61 @@ froitas.splice(2, 1, 'cereixas', 'nesperas');
 console.log(froitas);
 
 //Exercise 3 Array
-function palabras(string) {
-    const array = string.split(" ");
-    for (let indice = 0; indice <= array.length; indice++){
-        
-    }
-}
 
-console.log(palabras("tinky Winky, dipsy, lala, Po"));
+//Como copiar arrays superficial, si hay objetos apunta direccion de memoria
+const oldArray = [0, 1, 2];
+let newArray = oldArray.slice();
+let newnewArray = [...oldArray];
+let newnewnewArray = Array.from(oldArray);
+
+//Copia superficial escalonada, no apunta direccion de memoria
+let supernewArray = JSON.parse(JSON.stringify(oldArray));
+
+//Desestructurar arrays = tomar valores por separado
+let arreglo = [1, 2, 3];
+let a, b, c;
+[a, b, c] = arreglo; // a toma valor del primer hueco del array...
+
+//Exercise 1 DesestructuraArray
+const players = [
+    [
+    "Neuer",
+    "Pavard",
+    "Martinez",
+    "Alaba",
+    "Davies",
+    "Kimmich",
+    "Goretzka",
+    "Coman",
+    "Muller",
+    "Gnarby",
+    "Lewandowski",
+    ],
+    [
+    "Burki",
+    "Schulz",
+    "Hummels",
+    "Akanji",
+    "Hakimi",
+    "Weigl",
+    "Witsel",
+    "Hazard",
+    "Brandt",
+    "Sancho",
+    "Gotze",
+    ],
+];
+//A
+let players1, players2;
+[players1] = players;
+[, players2] = players;
+console.log(players1, players2)
+//B
+let gk1, fieldPlayers1, gk2, fieldPlayers2;
+[gk1, ...fieldPlayers1] = players1;
+[gk2, ...fieldPlayers2] = players2;
+console.log(gk1, fieldPlayers1);
+console.log(gk2, fieldPlayers2);
+//C
+
+//D
