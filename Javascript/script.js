@@ -224,7 +224,15 @@ froitas.splice(2, 1, 'cereixas', 'nesperas');
 console.log(froitas);
 
 //Exercise 3 Array
+function primeraMayuscula(frase) {
+    let palabras = frase.split(' ');
+    for (let i = 0; i < palabras.length; i++) {
+        palabras[i] = palabras[i][0].toUpperCase() + palabras[i].slice(1).toLowerCase();
+    }
+    return palabras.join(' ');
+}
 
+console.log(primeraMayuscula("ejmpleo EJEmplo ejemPlo"));
 //Como copiar arrays superficial, si hay objetos apunta direccion de memoria
 const oldArray = [0, 1, 2];
 let newArray = oldArray.slice();
@@ -270,15 +278,44 @@ const players = [
 ];
 //A
 let players1, players2;
-[players1] = players;
-[, players2] = players;
-console.log(players1, players2)
+[players1, players2] = players;
+console.log("Jugadores1 : " + players1, "Jugadores2 : " + players2)
+
 //B
 let gk1, fieldPlayers1, gk2, fieldPlayers2;
 [gk1, ...fieldPlayers1] = players1;
 [gk2, ...fieldPlayers2] = players2;
-console.log(gk1, fieldPlayers1);
-console.log(gk2, fieldPlayers2);
+console.log("Portero: " + gk1, "Jugadores: " + fieldPlayers1);
+console.log("Portero: " + gk2, "Jugadores: " + fieldPlayers2);
+
 //C
+let allPlayers;
+allPlayers = [...players1, ...players2];
+console.log(allPlayers);
 
 //D
+let players1Final;
+players1Final = [...players1, "Thiago", "Coutinho", "Periscic"];
+console.log(players1Final);
+
+// Exercise 2 DesestructuraArray
+let arrayEntrada = ["first_name", "last_NAME"];
+function toCamelCaseArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        let [first, second] = array[i].toLowerCase().split('_');
+        second = second.charAt(0).toUpperCase() + second.slice(1);
+        console.log(first + second);
+    }
+}
+
+toCamelCaseArray(arrayEntrada);
+
+// Exercise 3 DesestructuraArray
+const flightsInfo = "_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio0943384722;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_Departure;scq93766109;svq2323639855;12:30";
+let estado, codigo1, codigo2, hora;
+for (let index = 0; index < flightsInfo.split("+").length; index++) {
+    for (let vuelos = 0; vuelos < flightsInfo.split("+")[index].length; vuelos++) {
+        [estado[index], codigo1[index], codigo2[index], hora[index]] = flightsInfo.split("+")[index].split(";");
+        
+    }
+}
