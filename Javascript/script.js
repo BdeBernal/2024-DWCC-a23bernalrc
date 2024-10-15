@@ -215,13 +215,14 @@ console.log(indices(1, numeros));
 const froitas = ['peras', 'mazás', 'kiwis', 'plátanos', 'mandarinas'];
 
 froitas.splice(1, 1);
-console.log(froitas);
+console.log(froitas.join(" "));
 
-froitas.splice(3, 0, "laranxas", "sandías");
-console.log(froitas);
+froitas.splice(2, 0, "laranxas", "sandías");
+console.log(froitas.join(" "));
 
 froitas.splice(2, 1, 'cereixas', 'nesperas');
-console.log(froitas);
+froitas.splice(1, 1);
+console.log(froitas.join(" "));
 
 //Exercise 3 Array
 function primeraMayuscula(frase) {
@@ -301,8 +302,8 @@ console.log(players1Final);
 // Exercise 2 DesestructuraArray
 let arrayEntrada = ["first_name", "last_NAME"];
 function toCamelCaseArray(array) {
-    for (let i = 0; i < array.length; i++) {
-        let [first, second] = array[i].toLowerCase().split('_');
+    for (const element of array) {
+        let [first, second] = element.toLowerCase().split('_');
         second = second.charAt(0).toUpperCase() + second.slice(1);
         console.log(first + second);
     }
@@ -311,11 +312,14 @@ function toCamelCaseArray(array) {
 toCamelCaseArray(arrayEntrada);
 
 // Exercise 3 DesestructuraArray
+function getCode(string) {
+    return string.slice(0, 3).toUpperCase();
+}
+
 const flightsInfo = "_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio0943384722;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_Departure;scq93766109;svq2323639855;12:30";
-let estado, codigo1, codigo2, hora;
-for (let index = 0; index < flightsInfo.split("+").length; index++) {
-    for (let vuelos = 0; vuelos < flightsInfo.split("+")[index].length; vuelos++) {
-        [estado[index], codigo1[index], codigo2[index], hora[index]] = flightsInfo.split("+")[index].split(";");
-        
-    }
+for (const flight of flightsInfo.split("+")) {
+    const [status, from, to, time] = flight.split(";");
+
+    const output = status.replaceAll("_", " ") + " " + getCode(from) + " " + getCode(to) + " " + time.replace(":", "h");
+    console.log(output.padStart(40));
 }
