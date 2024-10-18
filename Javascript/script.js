@@ -323,3 +323,68 @@ for (const flight of flightsInfo.split("+")) {
     const output = status.replaceAll("_", " ") + " " + getCode(from) + " " + getCode(to) + " " + time.replace(":", "h");
     console.log(output.padStart(40));
 }
+
+//Exercise 1 Object
+const television = {
+    marca: "marca",
+    categoria: "television",
+    unidades: 4,
+    precio: 354.99,
+    importe: function () {
+        return this.unidades * this.precio;
+    }
+};
+
+console.log(television.importe());
+
+//Exercise 2 Object
+const game = {
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    }
+};
+
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+//Exercise 3 Object
+const game2 = {
+    scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"]
+};
+for (const [index, player] of game2.scored.entries()) {
+    console.log(`Gol ${index + 1}: ${player}`);
+}
+
+const scorers = {};
+
+for (const scorer of game2.scored) {
+    scorers[scorer] ? scorers[scorer]++ : (scorers[scorer] = 1);
+}
+
+console.log(scorers);
+
+//Exercise 1 Map
+const gameEvents = new Map([
+    [17, "GOAL"],
+    [36, "Substitution"],
+    [47, "GOAL"],
+    [61, "Substitution"],
+    [64, "Yellow card"],
+    [69, "Red card"],
+    [70, "Substitution"],
+    [72, "Substitution"],
+    [76, "GOAL"],
+    [80, "GOAL"],
+    [92, "Yellow card"],
+]);
+
+const eventos = new Set();
+
+for (const [key, value] of gameEvents) {
+    eventos.add(value)
+}
+
+const arrayEventos = Array.from(eventos);
+console.log(arrayEventos);
