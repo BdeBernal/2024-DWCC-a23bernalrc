@@ -44,13 +44,21 @@ console.log(media(2, 5, 7, 2))
 
 // Exercise 5
 const minMax = array => {
-    return [Math.max(...array), Math.min(...array)]
+    const objeto = {
+        min: Math.max(...array),
+        max: Math.min(...array)
+    };
+    return objeto
 }
 
 console.log(minMax([2, 5, 7, 8]));
     
 // Exercise 6
 (function () {
+    let ladoMayor = 12;
+    let ladoMenor = 4;
+    let area = ladoMenor * ladoMayor;
+    console.log("El área es de " + area);
 })();
 
 // Exercise 7
@@ -80,19 +88,54 @@ verificarDni("46091521G");
 
 // Exercise 8
 function cambio(numero) {
-    const cash = [500, 200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+    const cash = [500, 200, 100, 50, 20, 10, 5, 2, 1];
 
     for (const element of cash) {
-        while (numero > element){
+        while (numero >= element){
             numero -= element;
-            ////////
+            console.log("Billete de: " + element);
         }
     }
 }
 
-cambio(340);
+cambio(431);
 
 // Exercise 9
 function buscarPatron(texto, patron) {
+}
+
+// Exercise 10
+const inicioXornada = "7:30";
+const finalXornada = "17:45";
+
+function axendarReunion(horaInicio, duracionMinutos) {
+    let entrada = inicioXornada.split(":");
+    let inicioXornadaSegundos = parseInt(entrada[0]) * 3600 + parseInt(entrada[1]) * 60;
+
+    let salida = finalXornada.split(":");
+    let finalXornadaSegundos = parseInt(salida[0]) * 3600 + parseInt(salida[1]) * 60;
+
+    let reunion = horaInicio.split(":");
+    let reunionInicioSegundos = parseInt(reunion[0]) * 3600 + parseInt(reunion[1]) * 60;
+    let reunionFinalSegundos = reunionInicioSegundos + duracionMinutos * 60;
+
+    if (inicioXornadaSegundos <= reunionInicioSegundos && finalXornadaSegundos >= reunionFinalSegundos) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(axendarReunion("7:00", 15));
+console.log(axendarReunion("7:15", 30));
+console.log(axendarReunion("7:30", 30));
+console.log(axendarReunion("11:30", 60));
+console.log(axendarReunion("17:00", 45));
+console.log(axendarReunion("17:30", 30));
+
+// Exercise 11
+function buscaMinas(array) {
     
 }
+
+console.log(buscaMinas(vietnam));
