@@ -102,7 +102,16 @@ cambio(431);
 
 // Exercise 9
 function buscarPatron(texto, patron) {
+    let count = 0;
+    for (let i = 0; i <= texto.length - patron.length; i++) {
+        if (texto.substring(i, i + patron.length) === patron) {
+            count++;
+        }
+    }
+    return count;
 }
+
+console.log(buscarPatron("Hola, me llamo Hola y soy de Madrid", "Hola"));
 
 // Exercise 10
 const inicioXornada = "7:30";
@@ -138,4 +147,107 @@ function buscaMinas(array) {
     
 }
 
-console.log(buscaMinas(vietnam));
+console.log(buscaMinas([[0, 0, -1, 0],
+    [0, -1, -1, 0]]));
+
+// Exercise 1
+const objects = [{ price: 1 }, { price: 2 }, { price: 3 }];
+
+const price = objects.reduce((accumulator, currentValue, index) => accumulator + currentValue.price, 0);
+
+console.log(price);
+
+// Exercise 2
+const array = [6, 2, 3, 4, 5, -2];
+
+const menor = array.reduce((accumulator, currentValue) => Math.min(accumulator, currentValue));
+
+console.log(menor);
+
+// Exercise 1
+const persoas = [
+    { nome: 'aaron', idade: 65, id: 1 },
+    { nome: 'beth', idade: 2, id: 2 },
+    { nome: 'ánxeles', idade: 13, id: 3 },
+    { nome: 'daniel', idade: 3, id: 4 },
+    { nome: 'ada', idade: 25, id: 5 },
+    { nome: 'erea', idade: 1, id: 6 },
+    { nome: 'navia', idade: 43, id: 7 },
+];
+
+const mayores = persoas.filter(persoa => persoa.idade >= 18);
+console.log(mayores);
+
+const nombres = persoas.map(persoa => persoa.nome);
+console.log(nombres);
+
+const nombresMayores = persoas.filter(persoa => persoa.idade >= 18).map(persoa => persoa.nome.toUpperCase());
+console.log(nombresMayores);
+
+const idNombres = persoas.map(persoa => [persoa.id, persoa.nome]);
+console.log(idNombres)
+
+// Exercise 2
+const dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+
+const diasM = dias.filter(dia => dia.charAt(0) == "m");
+console.log(diasM);
+
+const diaS = dias.some(dia => dia.charAt(0) == "s");
+console.log(diaS)
+
+const todoS = dias.every(dia => dia.charAt(dia.length - 1) == "s");
+console.log(todoS)
+
+const primerM = dias.find(dia => dia.charAt(0) == "m");
+console.log(primerM);
+
+const primerIndiceM = dias.findIndex(dia => dia.charAt(0) == "m");
+console.log(primerIndiceM);
+
+const diasMayus = dias.map(dia => dia.toUpperCase());
+console.log(diasMayus)
+
+// Exercise 3
+const desordenado = [4, 8, 3, 10, 5];
+
+function compareNumbers(a, b) {
+    if (a < b) return -1;
+    else if (a > b) return 1;
+    else return 0;
+}
+
+const ordenado = desordenado.sort(compareNumbers);
+console.log(ordenado);
+
+// Exercise 4
+const numerines = [1, 5, 4, 2, 6, 3];
+
+const mayor = numerines.reduce((accumulator, currentValue) => Math.max(accumulator, currentValue));
+console.log(mayor);
+
+// Exercise 5
+const inventors = [
+    { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
+    { first: "Isaac", last: "Newton", year: 1643, passed: 1727 },
+    { first: "Galileo", last: "Galilei", year: 1564, passed: 1642 },
+    { first: "Marie", last: "Curie", year: 1867, passed: 1934 },
+    { first: "Johannes", last: "Kepler", year: 1571, passed: 1630 },
+    { first: "Nicolaus", last: "Copernicus", year: 1473, passed: 1543 },
+    { first: "Max", last: "Planck", year: 1858, passed: 1947 },
+    { first: "Katherine", last: "Blodgett", year: 1898, passed: 1979 },
+    { first: "Ada", last: "Lovelace", year: 1815, passed: 1852 },
+    { first: "Sarah", last: "Goode", year: 1855, passed: 1905 },
+    { first: "Lise", last: "Meitner", year: 1878, passed: 1968 },
+    { first: "Hanna", last: "Hammarström", year: 1829, passed: 1909 },
+];
+
+const sigloXVI = inventors.filter(inventor => (inventor.year >= 1501 && inventor.year <= 1600));
+console.log(sigloXVI);
+
+const nomeCompleto = inventors.map(inventor => [inventor.first, inventor.last]);
+console.log(nomeCompleto);
+
+const nomeCompletoOrdenado = nomeCompleto.sort();
+console.log(nomeCompletoOrdenado);
+
