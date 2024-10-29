@@ -144,11 +144,18 @@ console.log(axendarReunion("17:30", 30));
 
 // Exercise 11
 function buscaMinas(array) {
-    
+  for (let y = 0; y < array.length; y++) {
+    for (let x = 0; x < array[y].length; x++) {
+        if (array[y][x] == -1) {
+            
+        }
+    }
+  }
+    return array;
 }
 
 console.log(buscaMinas([[0, 0, -1, 0],
-    [0, -1, -1, 0]]));
+                        [0, -1, -1, 0]]));
 
 // Exercise 1
 const objects = [{ price: 1 }, { price: 2 }, { price: 3 }];
@@ -245,9 +252,52 @@ const inventors = [
 const sigloXVI = inventors.filter(inventor => (inventor.year >= 1501 && inventor.year <= 1600));
 console.log(sigloXVI);
 
-const nomeCompleto = inventors.map(inventor => [inventor.first, inventor.last]);
+const nomeCompleto = inventors.map(inventor => [inventor.first + " " + inventor.last]);
 console.log(nomeCompleto);
 
-const nomeCompletoOrdenado = nomeCompleto.sort();
+const nomeCompletoOrdenado = nomeCompleto.sort((a, b) => a[0].split(" ")[1].localeCompare(b[0].split(" ")[1]));
 console.log(nomeCompletoOrdenado);
+
+const ordenApelido = inventors.sort((a, b) => a.last.localeCompare(b.last));
+console.log(ordenApelido);
+
+const ordenNacimiento = inventors.sort((a, b) => a.year - b.year);
+console.log(ordenNacimiento);
+
+const sumaAnos = inventors.map(inventor => inventor.passed - inventor.year).reduce((accumulator, currentValue) => accumulator + currentValue);
+console.log(sumaAnos + " años entre todos los inventores");
+
+const ordenLongevo = inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year));
+console.log(ordenLongevo);
+
+// Exercise 6
+const data = [
+    "car",
+    "car",
+    "truck",
+    "truck",
+    "bike",
+    "walk",
+    "car",
+    "van",
+    "bike",
+    "walk",
+    "car",
+    "van",
+    "car",
+    "truck",
+    "pogostick",
+];
+
+const transport = data.reduce((accumulator, currentValue) => {
+    if (!accumulator[currentValue]) {
+    accumulator[currentValue] = 1;
+} else {
+    accumulator[currentValue]++;
+}
+    return accumulator;
+}, {});
+console.log(transport);
+
+
 
