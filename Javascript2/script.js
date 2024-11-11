@@ -299,5 +299,25 @@ const transport = data.reduce((accumulator, currentValue) => {
 }, {});
 console.log(transport);
 
+// Exercise 2
+function verify(regexp, yes, no) {
+    // Ignore unfinished exercises
+    if (regexp.source == "...") return;
+    for (let str of yes) if (!regexp.test(str)) {
+    console.log(`Failure to match '${str}'`);
+    }
+    for (let str of no) if (regexp.test(str)) {
+    console.log(`Unexpected match for '${str}'`);
+    }
+}
 
+verify(/ca(r|t)/, ["my car", "bad cats"], ["camper", "high art"]);
+verify(/pr?op/, ["pop culture", "mad props"], ["plop", "prrrop"]);
+verify(/ferr(?:et|y|ari)/, ["ferret", "ferry", "ferrari"], ["ferrum", "transfer A"]);
+verify(/\b\w*ious\b/, ["how delicious", "spacious room"], ["ruinous", "consciousness"]);
+verify(/\s[.,:;]/, ["bad punctuation ."], ["escape the period"]);
+verify(/\b\w{7,}\b/,["Siebentausenddreihundertzweiundzwanzig"], ["no", "three small words"]);
+verify(/\b[^eE\s]+\b/, ["red platypus", "wobbling nest"], ["earth bed", "learning ape", "BEET"]);
 
+// Exercise 2
+verify(/^([0-9A-Fa-f]{2}([-:])){5}([0-9A-Fa-f]{2})$/, ["00:1A:2B:3C:4D:5E", "01-23-45-67-89-AB"], ["00:1A:2B:3C:4D:5E:6F", "01-23-45-67-89-GH"]);
