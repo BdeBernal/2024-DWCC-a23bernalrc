@@ -28,6 +28,6 @@ console.log(ul.querySelectorAll('li').length);
 
 // Indica o valor do atributo data-widget-name
 
-const div = document.querySelector('body > div[id=lipsum]').lastElementChild;
+const div = document.querySelector('body > div[id=lipsum]').lastElementChild.dataset.widgetName;
 
 console.log(div)

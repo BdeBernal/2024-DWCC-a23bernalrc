@@ -4,13 +4,13 @@
 console.log(document.querySelector('body').firstElementChild);
 
 // Acceder ao nodo ul
-console.log(document.querySelector('ul'));
+console.log(document.querySelector('body').children[1]);
 
 // Acceder ao segundo nodo li
-console.log(document.querySelector('ul li:nth-child(2)'));
+console.log(document.querySelector('body').children[1].lastElementChild);
 
-// ¿É certo que elemento.lastChild.nextSibling é sempre null? -> No
-// ¿É certo que elemento.children[0].previousSibling é sempre null? -> Si
+// ¿É certo que elemento.lastChild.nextSibling é sempre null? -> Si
+// ¿É certo que elemento.children[0].previousSibling é sempre null? -> No
 
 // Pintar as celas diagonais dunha táboa de vermello
 const table = document.querySelector('table');
