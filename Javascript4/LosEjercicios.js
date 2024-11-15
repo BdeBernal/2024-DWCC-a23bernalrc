@@ -50,8 +50,50 @@ let arbore = { // ul
         }
     }
 };
-function createTree() {
-    
+function createTree(data) {
+    let ul = document.createElement('ul');
+
+    let keys = Object.keys(data).forEach(key => {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.append(key);
+
+        if (Object.keys(data[key]).length > 0) {
+            li.append(createTree(data[key]));
+        }
+    });
+
+
+    return ul;
 }
 
-console.log(createTree());
+console.log(createTree(arbore));
+
+// Ejercicio 7
+
+function crearCalendario(elemento, ano, mes) {
+
+    const meses = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const fecha = new Date(meses[mes - 1] + ' 1, ' + ano);
+    const diaSemana = fecha.toString().substring(0, 3);
+
+    let thead = document.createElement('th');
+    elemento.appendChild(thead);
+
+    const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+    const dias = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    for (let index = 0; index < dias.length; index++) {
+        let col = document.createElement('td');
+        thead.append(col);
+        col.append(dias[index]);
+    }
+
+    
+    return elemento;
+}
+
+let calendario = document.createElement('table');
+
+console.log(crearCalendario(calendario, 2022, 11));
