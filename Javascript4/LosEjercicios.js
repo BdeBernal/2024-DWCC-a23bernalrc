@@ -76,7 +76,7 @@ function crearCalendario(elemento, ano, mes) {
     const meses = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     const fecha = new Date(meses[mes - 1] + ' 1, ' + ano);
-    const diaSemana = fecha.toString().substring(0, 3);
+    const diaSemana = fecha.toString().substring(0, 3); // Obtención día de la semana en el que empieza el mes
 
     let thead = document.createElement('th');
     elemento.appendChild(thead);
@@ -90,6 +90,29 @@ function crearCalendario(elemento, ano, mes) {
         col.append(dias[index]);
     }
 
+    let tbody = document.createElement('tbody');
+    elemento.appendChild(tbody);
+
+    let row = document.createElement('tr');
+    tbody.appendChild(row);
+
+    let startDay = dias.indexOf(diaSemana); // Dia de la semana en la que empieza el mes
+    for (let i = 0; i < startDay; i++) {
+        let col = document.createElement('td');
+        row.appendChild(col); // Rellena con columnas vacías hasta que empiece el mes
+    }
+
+    for (let i = 1; i <= numeros.length; i++) {
+        if (startDay === 7) { // Salto de línea cada vez que se llega al final de la semana
+            startDay = 0;
+            row = document.createElement('tr');
+            tbody.appendChild(row);
+        }
+        let col = document.createElement('td');
+        col.append(i);
+        row.appendChild(col);
+        startDay++;
+    }
     
     return elemento;
 }
@@ -97,3 +120,5 @@ function crearCalendario(elemento, ano, mes) {
 let calendario = document.createElement('table');
 
 console.log(crearCalendario(calendario, 2022, 11));
+
+// Ejercicio 8
