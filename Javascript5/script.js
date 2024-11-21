@@ -42,3 +42,60 @@ dulces.style.cursor = 'pointer';
 dulces.addEventListener("click", mostrarDulces);
 
 // Ejercicio 5
+function eventoclick() {
+    console.log("Evento de click");
+}
+
+function eventodblclick() {
+    console.log("Evento de dblclick");
+}
+
+function eventocontextmenu() {
+    console.log("Evento de contextmenu");
+}
+
+function eventomousedown() {
+    console.log("Evento de mousedown");
+}
+
+function eventomouseup() {
+    console.log("Evento de mouseup");
+}
+
+function eventowheel() {
+    console.log("Evento de wheel");
+}
+
+function eventomouseover() {
+    console.log("Evento de mouseover");
+}
+
+function eventomouseout() {
+    console.log("Evento de mouseout");
+}
+
+function eventodragstart() {
+    console.log("Evento de dragstart");
+}
+
+function eventodrag() {
+    console.log("Evento de drag");
+}
+
+function eventodragend() {
+    console.log("Evento de dragend");
+}
+
+const imagen = document.getElementById('imagen');
+
+imagen.addEventListener("click", eventoclick);
+imagen.addEventListener("dblclick", eventodblclick);
+imagen.addEventListener("contextmenu", eventocontextmenu);
+imagen.addEventListener("mousedown", eventomousedown);
+imagen.addEventListener("mouseup", eventomouseup);
+imagen.addEventListener("wheel", eventowheel);
+imagen.addEventListener("mouseover", eventomouseover);
+imagen.addEventListener("mouseout", eventomouseout);
+imagen.addEventListener("dragstart", eventodragstart);
+imagen.addEventListener("drag", eventodrag);
+imagen.addEventListener("dragend", eventodragend);
