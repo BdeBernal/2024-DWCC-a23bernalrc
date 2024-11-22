@@ -122,3 +122,5 @@ let calendario = document.createElement('table');
 console.log(crearCalendario(calendario, 2022, 11));
 
 // Ejercicio 8
+
+// Ejercicio 9
