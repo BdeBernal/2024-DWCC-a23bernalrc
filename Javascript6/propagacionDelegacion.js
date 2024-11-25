@@ -25,24 +25,6 @@ lista.addEventListener('click', event => {
 const table = document.querySelector('table');
 table.addEventListener('click', event => {
 
-    const th = event.target;
-    const table = th.closest('table');
-    const index = Array.from(th.parentNode.children).indexOf(th);
-    const type = th.dataset.type;
-    const rows = Array.from(table.querySelectorAll('tr')).slice(1);
-
-    rows.sort((rowA, rowB) => {
-        const cellA = rowA.children[index].innerText;
-        const cellB = rowB.children[index].innerText;
-
-        if (type === 'number') {
-            return parseFloat(cellA) - parseFloat(cellB);
-        } else {
-            return cellA.localeCompare(cellB);
-        }
-    });
-
-    rows.forEach(row => table.appendChild(row));
 });
 
 // Ejercicio 4 
