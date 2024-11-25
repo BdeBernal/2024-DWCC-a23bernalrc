@@ -9,25 +9,21 @@ container.addEventListener('click', event => {
 });
 
 // Ejercicio 2
-const lista = document.querySelector('.tree');
+const lista = document.querySelector('#tree');
 lista.addEventListener('click', event => {
     const title = event.target.closest('li');
-    if (!title) return;
+    const parent = title.querySelector('ul');
 
-    const childrenContainer = title.parentElement.querySelector('ul');
-    if (!childrenContainer) return;
-
-    if (childrenContainer.style.display === 'none') {
-        childrenContainer.style.display = 'block';
+    if (parent.style.display == 'none') {
+        parent.style.display = 'block';
     } else {
-        childrenContainer.style.display = 'none';
+        parent.style.display = 'none';
     }
 });
 
 // Ejercicio 3
 const table = document.querySelector('table');
 table.addEventListener('click', event => {
-    if (event.target.tagName !== 'TH') return;
 
     const th = event.target;
     const table = th.closest('table');
@@ -53,10 +49,30 @@ table.addEventListener('click', event => {
 const contents = document.querySelector('#contents');
 contents.addEventListener('click', event => {
     const link = event.target.closest('a');
-    if (!link) return;
 
     const confirmNavigation = confirm('Are you sure you want to navigate to this link?');
     if (!confirmNavigation) {
         event.preventDefault();
     }
+});
+
+// Ejercicio 5
+const gallery = document.getElementById('thumbs');
+gallery.addEventListener('click', event => {
+    
+});
+
+// Ejercicio 6
+const seleccionar = document.getElementById('ul');
+seleccionar.addEventListener('click', event => {
+
+    for (const item of seleccionar.children) {
+        item.removeAttribute('class');
+    }
+
+    const li = event.target.closest('li');
+
+    li.setAttribute('class', 'selected');
+
+
 });
