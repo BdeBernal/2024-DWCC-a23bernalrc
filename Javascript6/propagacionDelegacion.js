@@ -41,7 +41,13 @@ contents.addEventListener('click', event => {
 // Ejercicio 5
 const gallery = document.getElementById('thumbs');
 gallery.addEventListener('click', event => {
-    
+    let link = event.target.closest('a');
+
+    if (!link) {
+        event.target.preventDefault();
+    } else {
+        
+    }
 });
 
 // Ejercicio 6
