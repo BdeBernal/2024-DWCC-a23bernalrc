@@ -67,9 +67,13 @@ function actualizar(p) {
     const texto = p.textContent;
     const input = document.getElementById('nuevoItem');
     input.value = texto;
+    
+    const comprobacion = Array.from(lista.getElementsByTagName('p')).map(item => item.textContent);
 
+    // Sacar event listener fuera para que no se duplique
     const actualizar = document.getElementById('actualizar');
     actualizar.addEventListener('click', () => {
+
         p.textContent = input.value;
         input.value = '';
 
@@ -78,6 +82,7 @@ function actualizar(p) {
 
         ocultar.style.display = 'block';
         mostrar.style.display = 'none';
+
     });
 };
 
