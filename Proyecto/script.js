@@ -49,6 +49,8 @@ padreLista.addEventListener('click', event => {
 });
 
 // Actualizar
+let elementoParaActualizar = null;
+
 padreLista.addEventListener('click', event => {
     const p = event.target.closest('p');
 
@@ -59,32 +61,34 @@ padreLista.addEventListener('click', event => {
         ocultar.style.display = 'none';
         mostrar.style.display = 'block';
 
-        actualizar(p)
+        elementoParaActualizar = p;
+        document.getElementById('nuevoItem').value = p.textContent;
     }
 });
+// Añadir estilo a una clase de todos los divs para saber cual se selecciona y asi no necesitar variable global solo obteniendo estilo
+const actualizar = document.getElementById('actualizar');
+actualizar.addEventListener('click', () => {
+    if (elementoParaActualizar) {
+        const input = document.getElementById('nuevoItem');
+        const nuevoValor = input.value;
+        
+        const lista = document.getElementById('lista');
+        const comprobacion = Array.from(lista.getElementsByTagName('p')).map(item => item.textContent);
 
-function actualizar(p) {
-    const texto = p.textContent;
-    const input = document.getElementById('nuevoItem');
-    input.value = texto;
-    
-    const comprobacion = Array.from(lista.getElementsByTagName('p')).map(item => item.textContent);
+        if (!comprobacion.includes(nuevoValor) || nuevoValor === elementoParaActualizar.textContent) {
+            elementoParaActualizar.textContent = nuevoValor;
+            input.value = '';
 
-    // Sacar event listener fuera para que no se duplique
-    const actualizar = document.getElementById('actualizar');
-    actualizar.addEventListener('click', () => {
+            const ocultar = document.getElementById('engadir');
+            const mostrar = document.getElementById('actualizar');
 
-        p.textContent = input.value;
-        input.value = '';
-
-        const ocultar = document.getElementById('engadir');
-        const mostrar = document.getElementById('actualizar');
-
-        ocultar.style.display = 'block';
-        mostrar.style.display = 'none';
-
-    });
-};
+            ocultar.style.display = 'block';
+            mostrar.style.display = 'none';
+        } else {
+            alert('El elemento ya existe en la lista.');
+        }
+    }
+});
 
 const filtrar = document.getElementById('filtro');
 filtrar.addEventListener('input', event => {

@@ -1,0 +1,34 @@
+#redimensionar {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+}
+
+#bloque {
+    width: 200px;
+    height: 200px;
+    background-color: cornflowerblue;
+    display: block;
+}
+
+#escribir{
+    display: none;
+    width: 200px;
+    height: 200px;
+}
+
+#tresenraya {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
+#tresenraya > div {
+    flex: 1 1 calc(33.33% - 10px);
+    box-sizing: border-box;
+    background-color: white;
+}
+
