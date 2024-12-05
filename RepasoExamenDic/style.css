@@ -32,3 +32,25 @@
     background-color: white;
 }
 
+div > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 63.33px;
+    height: 63.33px;
+}
+
+#resultado {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.555);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -180px;
+    position: relative;
+    top: -200px;
+    z-index: -1;
+}
