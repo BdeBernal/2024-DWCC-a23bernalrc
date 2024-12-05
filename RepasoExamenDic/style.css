@@ -45,7 +45,7 @@ div > div {
     height: 200px;
     background-color: rgba(0, 0, 0, 0.555);
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
