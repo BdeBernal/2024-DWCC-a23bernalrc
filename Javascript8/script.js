@@ -33,10 +33,6 @@ escribirMasNumeros(1, 10);
 //alternando entre dúas cores, as que escollas. O outro botón debe deter o intervalo e
 //parar o cambio de cores.
 
-function numero(max) {
-    return Math.floor(Math.random() * max);
-}
-
 let idInterval;
 
 const color = document.getElementById('cambiarColor');
@@ -44,13 +40,15 @@ const h1 = document.getElementById('h1');
 const parar = document.getElementById('parar');
 
 color.addEventListener('click', () => {
-    idInterval = setInterval(() => {
-        if (h1.style.color == 'black') {
-            h1.style.color = 'red';
-        } else {
-            h1.style.color = 'black';
-        }
-    }, 1000)
+    if (!idInterval) {
+        idInterval = setInterval(() => {
+            if (h1.style.color == 'black') {
+                h1.style.color = 'red';
+            } else {
+                h1.style.color = 'black';
+            }
+        }, 1000)
+    }
 });
 
 parar.addEventListener('click', () => {
@@ -63,5 +61,7 @@ parar.addEventListener('click', () => {
 
 let img = document.createElement('img');
 document.body.appendChild(img)
-img.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xI1LqxCGglcQZVVo_XEg-9r1zZ4tZfDE3A&s');
-console.log('imagen cargada');
+img.setAttribute('src', 'https://images.pexels.com/photos/30098120/pexels-photo-30098120/free-photo-of-imagen-en-blanco-y-negro-de-la-entrada-a-la-historica-torre.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+img.addEventListener('load', () => {
+    console.log("Imagen cargada")
+})
