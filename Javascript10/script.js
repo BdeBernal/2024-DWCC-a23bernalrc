@@ -3,8 +3,8 @@
 //¿Son iguais os seguintes fragmentos de código? ¿Que pasa se se produce un erro
 //en f1?
 
-//promise.then(f1).catch(f2); Captura los errores que surjan en la promesa
-//promise.then(f1, f2); Maneja cuando la promesa se rechaza
+//promise.then(f1).catch(f2); Si se produce un error en f1 el catch de f2 lo captura
+//promise.then(f1, f2); Si se produce un error en f1 no caputra nadie 
 
 // ¿Cal é a saída do seguinte código? ¿Por que?
 function job() {
@@ -89,7 +89,7 @@ function funcion(a) {
         if (isNaN(a)) {
             reject('Error. No es un número');
         } else {
-           if (a % 2 == 0) {
+            if (a % 2 == 0) {
                 setTimeout(() => {
                     reject('par');
                 }, 2000);
