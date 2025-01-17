@@ -36,16 +36,16 @@ body {
 }
 
 .pokeball-small {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: radial-gradient(
-            white 8px,
-            black 9px 10px,
-            white 11px 12px,
-            black 13px 16px,
-            transparent 17px
+            white 3px,
+            black 4px 5px,
+            white 6px 7px,
+            black 8px 10px,
+            transparent 12px
         ),
-        linear-gradient(to bottom, red 0 20px, black 21px 24px, white 25px 26%);
+        linear-gradient(to bottom, red 0 16px, black 17px 20px, white 21px 26%);
     border-radius: 50%;
     border: 2px solid black;
     box-shadow: inset -4px -2px 0 0 rgba(0, 0, 0, 0.2);
