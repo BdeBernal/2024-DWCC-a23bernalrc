@@ -30,22 +30,22 @@ body {
 }
 
 .pokedex-header h1 {
-    margin: 0;
+    margin: -7px;
     font-size: 2em;
     display: inline-block;
 }
 
-.pokeball-small {
-    width: 35px;
-    height: 35px;
+#pokeball-small {
+    width: 30px;
+    height: 30px;
     background: radial-gradient(
-            white 3px,
-            black 4px 5px,
-            white 6px 7px,
-            black 8px 10px,
-            transparent 12px
+            white 1px,
+            black 2px 3px,
+            white 4px 5px,
+            black 6px 8px,
+            transparent 10px
         ),
-        linear-gradient(to bottom, red 0 16px, black 17px 20px, white 21px 26%);
+        linear-gradient(to bottom, red 0 13px, black 14px 16px, white 17px 26%);
     border-radius: 50%;
     border: 2px solid black;
     box-shadow: inset -4px -2px 0 0 rgba(0, 0, 0, 0.2);
@@ -59,7 +59,7 @@ body {
 .pokemon-list {
     width: 40%;
     background-color: #fff;
-    border-right: 2px solid #000;
+    border-right: 3px solid #000;
     padding: 10px;
     overflow-y: auto;
     height: 400px;
