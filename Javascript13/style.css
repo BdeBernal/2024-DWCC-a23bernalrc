@@ -12,6 +12,8 @@ body {
     border: 5px solid #000;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 450px;
+    max-height: 550px;
 }
 
 .pokedex-header {
@@ -30,20 +32,43 @@ body {
 }
 
 .pokedex-header h1 {
-    margin: 0;
+    margin: 0 0 0 0;
     font-size: 2em;
     display: inline-block;
 }
 
+img{
+    width: 100%;
+    height: 50%;
+}
+
+#tipos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nombre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+ul{
+    list-style: none;
+}
+
 .pokeball-small {
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 33px;
+    margin: 0 -8px 0 -8px;
     background: radial-gradient(
-            white 3px,
-            black 4px 5px,
-            white 6px 7px,
-            black 8px 10px,
-            transparent 12px
+            white 2px,
+            black 3px 4px,
+            white 5px 6px,
+            black 7px 9px,
+            transparent 11px
         ),
         linear-gradient(to bottom, red 0 16px, black 17px 20px, white 21px 26%);
     border-radius: 50%;
