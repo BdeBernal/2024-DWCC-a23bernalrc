@@ -1,15 +1,29 @@
-div{
+div > div{
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #888;
     display: inline-block;
 }
 
-div > div {
-    border: 2px solid black;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 3px;
+p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
 }
 
-div > div:hover {
-    background-color: rgba(134, 180, 132, 0.712);
+div > a {
+    background-color: #ff5c5c;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    padding: 5px;
+    border-radius: 20%;
     cursor: pointer;
 }
