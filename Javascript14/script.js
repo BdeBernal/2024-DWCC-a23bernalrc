@@ -56,13 +56,29 @@ let body = document.querySelector('body');
 
 function mostrarDatos(data) {
     let table = document.createElement('table');
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
+    table.appendChild(thead);
+    table.appendChild(tbody);
     body.append(table);
+
+    let headerRow = document.createElement('tr');
+    thead.appendChild(headerRow);
+
+    // Crear cabeceras
+    let headers = ['Denominación', 'Número de habitantes', 'Superficie', 'Capital'];
+    headers.forEach(header => {
+        let th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
 
     data.forEach(element => {
         let tr = document.createElement('tr');
-        table.appendChild(tr);
+        tbody.appendChild(tr);
 
-        Object.entries(element).forEach(([key, value]) => {
+        let values = [element.Denominación, element.Habitantes, element.Superficie, element.Capitalidad];
+        values.forEach(value => {
             let td = document.createElement('td');
             td.textContent = value;
             tr.appendChild(td);
