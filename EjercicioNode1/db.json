@@ -1,0 +1,23 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "telefono": "611411818",
+      "enderezo": "Calle Matungo 3",
+      "pedidoTipico": "Aire Acondicionado 600W"
+    },
+    {
+      "id": "2",
+      "telefono": "611454518",
+      "enderezo": "Plaza pinocho 6",
+      "pedidoTipico": "Colonia de Bustamante"
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "1",
+      "telefonoCliente": "611411818",
+      "descripcion": "Monitor Asus 144Hz HD 4K"
+    }
+  ]
+}

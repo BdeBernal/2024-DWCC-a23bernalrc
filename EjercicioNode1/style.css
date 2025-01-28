@@ -1,0 +1,13 @@
+#info {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 5% 0 0 0;
+}
+
+body{
+    margin: 5%;
+    height: 100%;
+}
