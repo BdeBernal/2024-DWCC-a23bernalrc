@@ -8,7 +8,7 @@ function mostrarDatos() {
         .then(response => response.json())
         .then(data => {
             for (const element of data) {
-                console.log(element)
+                
             }
         });
 }
