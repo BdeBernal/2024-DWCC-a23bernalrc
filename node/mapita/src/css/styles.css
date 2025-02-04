@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+  
+#map {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10%;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+#lista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
