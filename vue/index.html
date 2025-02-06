@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-html="cadena" >Cadena: {{ cadena }}</p>
+        <p v-bind:id="numero">Número: {{ numero }}</p>
+        <p>Boolean: {{ boolean }}</p>
+        <p>Array: {{ array }}</p>
+        <p>Objeto: {{ objeto }}</p>
+        <p>Función: {{ funcion }}</p>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="script.js" defer></script>
+</html>
