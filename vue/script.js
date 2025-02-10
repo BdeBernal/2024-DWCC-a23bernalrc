@@ -1,20 +1,22 @@
 const { createApp } = Vue;
+let hoy = new Date().getFullYear();
 createApp({
     data() {
         return {
-            cadena: "<b>Ola mundo!</b>",
-            numero: 2,
-            boolean: true,
-            array: [1, "si", 2, false],
-            objeto: {
-                color: "blanco",
-                edad: 5
-            },
+            nombre: "Bernal",
+            ano: hoy,
+            suma: hoy + 5,
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xI1LqxCGglcQZVVo_XEg-9r1zZ4tZfDE3A&s",
+            completo: "Bernal",
+            contador: 0,
         };
     },
     methods: {
-        increment() {
-            this.numero++;
+        mas() {
+            this.contador++;
+        },
+        menos() {
+            this.contador--;
         }
     }
 }).mount("#app");

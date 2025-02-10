@@ -8,12 +8,14 @@
 </head>
 <body>
     <div id="app">
-        <p v-html="cadena" >Cadena: {{ cadena }}</p>
-        <p v-bind:id="numero">Número: {{ numero }}</p>
-        <p>Boolean: {{ boolean }}</p>
-        <p>Array: {{ array }}</p>
-        <p>Objeto: {{ objeto }}</p>
-        <p>Función: {{ funcion }}</p>
+        <p> {{ nombre }} </p>
+        <p> {{ ano }} </p>
+        <p> {{ suma }} </p>
+        <img :src="url"> <br>
+        <input type="text" name="text" id="text" :value="completo">
+        <p> {{ contador }} </p>
+        <button @click="mas">Incrementar</button>
+        <button @click="menos">Decrementar</button>
     </div>
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
