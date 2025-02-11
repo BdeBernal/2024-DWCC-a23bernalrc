@@ -18,5 +18,13 @@ createApp({
         menos() {
             this.contador--;
         }
+    },
+    computed: {
+        propiedadCalculada() {
+            return this.contador > 2 ? "Mayor a 2" : "Menor a 2";
+        }
+    },
+    watch: {
+        
     }
 }).mount("#app");
