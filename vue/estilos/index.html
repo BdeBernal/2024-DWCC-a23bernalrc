@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .red{
+            color: red;
+        }
+        .greenClass{
+            color: green;
+        }
+        .yellowClass{
+            color: yellow;
+        }
+        .celda{
+            background-color: rgb(202, 115, 115);
+            border: 1px solid white;
+        }
+    </style>
+    <div id="app">
+        <p :class="{red: isRed}" @click="cambiar">Pulsa sobre mí</p>
+        <p :class="classObject" @click="alternar">Pulsa sobre mí también</p> <br><br><br>
+
+        <table border="1">
+            <tr>
+                <td :class="activa" @click="lasCeldas">Primera</td>
+            </tr>
+            <tr>
+                <td :class="activa" @click="lasCeldas">Segunda</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="script.js"></script>
+</html>

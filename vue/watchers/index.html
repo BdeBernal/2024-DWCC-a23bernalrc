@@ -9,10 +9,12 @@
 </head>
 <body>
     <div id="app" class="container">
-        Número 1: <input type="text" name="text1" id="text1"> <br>
-        Número 2: <input type="text" name="text2" id="text2"> 
-        <p>Resultado: {{ resultado }} {{ letra }}</p>
+        Número 1: <input type="text" name="text1" id="text1" v-model="numero1" @input="input"> <br>
+        Número 2: <input type="text" name="text2" id="text2" v-model="numero2" @input="input"> 
+        <p>Resultado: {{ resultado }} </p>
+        <p id="texto" v-model="texto">Tipo: {{ texto }} </p>
     </div>
+
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="script.js" defer></script>
