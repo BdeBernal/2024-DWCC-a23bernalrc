@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .lista {
+            display: none;
+        }
+        .ocultar{
+            display: none;
+        }
+    </style>
+
+    <div id="app">
+
+        <input type="text" name="text" id="text" v-model="nuevo">
+        <button id="añadir" @click="añadirNuevo">Añadir</button>
+
+        <ul :class="{lista: display}" v-for="elemento in elementos" :key="elemento.id">
+            <li @click="borrarElemento(key)"> {{ elemento }} </li>
+        </ul>
+
+        <br><br>
+
+        <button id="ocultar" @click="ocultar" :class="{ocultar: boton1}">Ocultar</button>
+        <button id="mostrar" @click="mostrar" :class="{ocultar: boton2}">Mostrar</button>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="script.js"></script>
+</html>
