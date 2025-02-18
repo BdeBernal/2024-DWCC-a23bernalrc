@@ -12,39 +12,41 @@
 </head>
 
 <body>
-  <header>
-    <h1>Batalla</h1>
-  </header>
-  <div id="game">
-    <section id="monster" class="container">
-      <h2>Monstro</h2>
-      <div class="healthbar">
-        <div class="healthbar__value"></div>
-      </div>
-    </section>
-    <section id="player" class="container">
-      <h2>Vostede</h2>
-      <div class="healthbar">
-        <div class="healthbar__value"></div>
-      </div>
-    </section>
-    <section class="container">
-      <h2>Fin partida!</h2>
-      <h3>Perdiches!</h3>
-      <h3>Ganaches</h3>
-      <h3>Empate</h3>
-      <button>Novo xogo</button>
-    </section>
-    <section id="controls">
-      <button>ATAQUE</button>
-      <button>ATAQUE ESPECIAL</button>
-      <button>CURACIÓN</button>
-      <button>RENDERSE</button>
-    </section>
-    <section id="log" class="container">
-      <h2>Rexistro da batalla</h2>
-      <ul></ul>
-    </section>
+  <div id="app">
+    <header>
+      <h1>Batalla</h1>
+    </header>
+    <div id="game">
+      <section id="monster" class="container">
+        <h2>Monstro</h2>
+        <div class="healthbar">
+          <div class="healthbar__value" :style="{ width: enemyHealth + '%', backgroundColor: pocaVidaEnemy}"></div>
+        </div>
+      </section>
+      <section id="player" class="container">
+        <h2>Vostede</h2>
+        <div class="healthbar">
+          <div class="healthbar__value" :style="{ width: playerHealth + '%', backgroundColor: pocaVidaPlayer}"></div>
+        </div>
+      </section>
+      <section class="container" v-if="showEndGame">
+        <h2 v-if="fin">Fin partida!</h2>
+        <h3 v-if="perder">Perdiches!</h3>
+        <h3 v-if="ganar">Ganaches</h3>
+        <h3 v-if="empatar">Empate</h3>
+        <button @click="restartGame">Novo xogo</button>
+      </section>
+      <section id="controls">
+        <button :disabled="deshabilitar" @click="atacar">ATAQUE</button>
+        <button :disabled="deshabilitar" @click="ataqueCritico">ATAQUE ESPECIAL</button>
+        <button :disabled="deshabilitar" @click="curar">CURACIÓN</button>
+        <button :disabled="deshabilitar" @click="rendirse">RENDERSE</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Rexistro da batalla</h2>
+        <ul></ul>
+      </section>
+    </div>
   </div>
 </body>
 
