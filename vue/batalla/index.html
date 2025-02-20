@@ -38,13 +38,15 @@
       </section>
       <section id="controls">
         <button :disabled="deshabilitar" @click="atacar">ATAQUE</button>
-        <button :disabled="deshabilitar" @click="ataqueCritico">ATAQUE ESPECIAL</button>
+        <button :disabled="cooldown" @click="ataqueCritico">ATAQUE ESPECIAL</button>
         <button :disabled="deshabilitar" @click="curar">CURACIÓN</button>
         <button :disabled="deshabilitar" @click="rendirse">RENDERSE</button>
       </section>
       <section id="log" class="container">
         <h2>Rexistro da batalla</h2>
-        <ul></ul>
+        <ul v-for="elemento in elementos">
+          <li> {{ elemento }} </li>
+        </ul>
       </section>
     </div>
   </div>

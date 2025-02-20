@@ -12,58 +12,77 @@ createApp({
             enemyHealth: 100,
             pocaVidaPlayer: "",
             pocaVidaEnemy: "",
+            elementos: [],
+            contador: 3,
+            cooldown: false,
         };
     },
     methods: {
         restartGame() {
             // Reiniciar el juego y reactivar botones
-            this.showEndGame = this.deshabilitar = this.perder = this.ganar = false;
+            this.showEndGame = this.deshabilitar = this.perder = this.ganar = this.cooldown = false;
+
+            // Reiniciar vida y color
             this.playerHealth = this.enemyHealth = 100;
             this.pocaVidaPlayer = this.pocaVidaEnemy = "#00a876";
+
+            // Reinicar log
+            this.elementos = [];
         },
         rendirse() {
             // Mostrar mensaje correspondiente y desactivar botones
-            this.showEndGame = true;
-            this.perder = true;
-            this.fin = true;
-            this.deshabilitar = true;
+            this.showEndGame = this.perder = this.fin = this.deshabilitar = this.cooldown = true;
         },
         atacar() {
             // Ataque del jugador
             const damage = Math.floor(Math.random() * 10);
             if (damage > this.enemyHealth) {
                 this.enemyHealth = 0;
-                this.showEndGame = true;
-                this.ganar = true;
-                this.deshabilitar = true;
+                this.showEndGame = this.ganar = this.deshabilitar = true;
             } else {
                 this.enemyHealth -= damage;
             }
-           
 
             // Ataque del enemigo
             const damageEnemy = Math.floor(Math.random() * 10);
-            console.log(damageEnemy)
             if (damageEnemy > this.playerHealth) {
                 this.playerHealth = 0;
-                this.showEndGame = true;
-                this.perder = true;
-                this.deshabilitar = true;
+                this.showEndGame = this.perder = this.deshabilitar = true;
             } else {
                 this.playerHealth -= damageEnemy;
+            }
+
+            // Meter el turno en el log
+            let log = "Vostede fixo " + damage + " de daño! - Monstro fixo " + damageEnemy + " de daño!";
+            this.elementos.push(log);
+            this.contador++;
+            if (this.contador % 4 == 0) {
+                this.cooldown = false;
             }
         },
         ataqueCritico() {
             let damage = Math.floor(Math.random() + 11);
-            damage *= (Math.floor(Math.random() * 2)); // Para que no sea tan fácil tiene tasa de éxito
-            console.log(damage)
             if (damage > this.enemyHealth) {
                 this.enemyHealth = 0;
-                this.showEndGame = true;
-                this.ganar = true;
-                this.deshabilitar = true;
+                this.showEndGame = this.ganar = this.deshabilitar = true;
             } else {
                 this.enemyHealth -= damage;
+                let log = "Vostede fixo " + damage + " de daño!";
+                this.elementos.push(log);
+                this.contador++;
+            }
+
+            const damageEnemy = Math.floor(Math.random() * 10);
+            if (damageEnemy > this.playerHealth) {
+                this.playerHealth = 0;
+                this.showEndGame = this.perder = this.deshabilitar = true;
+            } else {
+                this.playerHealth -= damageEnemy;
+            }
+
+            this.contador++;
+            if (this.contador % 4 != 0) {
+                this.cooldown = true;
             }
         },
         curar() {
@@ -72,18 +91,36 @@ createApp({
             } else {
                 this.playerHealth = 100;
             }
-            
+
+            const damageEnemy = Math.floor(Math.random() * 10);
+            if (damageEnemy > this.playerHealth) {
+                this.playerHealth = 0;
+                this.showEndGame = this.perder = this.deshabilitar = true;
+            } else {
+                this.playerHealth -= damageEnemy;
+            }
+            let log = "Vostede se curou 10 de vida! - Monstro fixo " + damageEnemy + " de daño!";
+            this.elementos.push(log);
+
+            this.contador++;
+            if (this.contador % 4 == 0) {
+                this.cooldown = false;
+            }
         }
     },
     watch: {
         playerHealth(nuevo) {
             if (nuevo < 35) {
                 this.pocaVidaPlayer = '#cf280a';
+            } else {
+                this.pocaVidaPlayer = '#00a876';
             }
         },
         enemyHealth(nuevo) {
             if (nuevo < 35) {
                 this.pocaVidaEnemy = '#cf280a';
+            } else {
+                this.pocaVidaEnemy = '#00a876';
             }
         }
     },
