@@ -2,10 +2,12 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import Addon from './componentes/Addon.vue';
+import Contador from './components/Contador.vue'
+import Contact from './components/Contact.vue'
 
 createApp(App).mount('#app')
 
 const app = createApp(App);
-app.component('Addon', Addon);
+app.component('Contador', Contador);
+app.component('Contact', Contact);
 app.mount('#app');
