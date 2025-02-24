@@ -6,12 +6,14 @@ export default {
       info: [{
         nome: "Paco",
         telefono: "64739375475",
-        correo: "paco@gmail.com"
+        correo: "paco@gmail.com",
+        favorito: false,
       },
         {
           nome: "Pepe",
           telefono: "64739375475",
-          correo: "pepesito@gmail.com"
+          correo: "pepesito@gmail.com",
+          favorito: false,
       }
       ],
     }
@@ -43,7 +45,12 @@ export default {
 
     <p>---------------------------------------------------</p>
 
-    <Contact :contacts="info"/>
+    <Contact v-for="infoDetails in info" 
+      :key="infoDetails.id"
+      :nome="infoDetails.nome"
+      :telefono="infoDetails.telefono"
+      :correo="infoDetails.correo"
+      :favorito="infoDetails.favorito"/>
 
   </div>
 </template>

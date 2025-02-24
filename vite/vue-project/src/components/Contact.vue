@@ -10,19 +10,24 @@ export default {
     mostrar() {
       this.oculto = !this.oculto;
       this.funcion = this.oculto ? "Ocultar Detalles" : "Mostrar Detalles";
-    }
+    },
   },
   props: {
-    contacts: Array
+    nome: String,
+    telefono: Number,
+    correo: String,
+    favorito: Boolean,
   }
 };
 </script>
 
 <template>
-    <div v-for="contact in contacts" v-bind:key="contact.id">
-      <h2>{{ contact.nome }}</h2>
-      <p v-if="oculto">{{ contact.telefono }}</p>
-      <p v-if="oculto">{{ contact.correo }}</p>
+    <div>
+      <div>
+        <h2>{{ nome }}</h2>
+      </div>
+      <p v-if="oculto">{{ telefono }}</p>
+      <p v-if="oculto">{{ correo }}</p>
       <button @click="mostrar">{{ funcion }}</button>
     </div>
 </template>
