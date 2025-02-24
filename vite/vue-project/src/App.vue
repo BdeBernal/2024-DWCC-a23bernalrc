@@ -3,6 +3,17 @@ export default {
   data() {
     return {
       text: "paco",
+      info: [{
+        nome: "Paco",
+        telefono: "64739375475",
+        correo: "paco@gmail.com"
+      },
+        {
+          nome: "Pepe",
+          telefono: "64739375475",
+          correo: "pepesito@gmail.com"
+      }
+      ],
     }
   },
   methods: {
@@ -32,7 +43,7 @@ export default {
 
     <p>---------------------------------------------------</p>
 
-    <Contact/>
+    <Contact :contacts="info"/>
 
   </div>
 </template>
