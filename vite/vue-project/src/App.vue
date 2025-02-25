@@ -1,15 +1,19 @@
 <script>
+import Formulario from './components/Formulario.vue';
+
 export default {
   data() {
     return {
       text: "paco",
       info: [{
+        id: 0,
         nome: "Paco",
         telefono: "64739375475",
         correo: "paco@gmail.com",
         favorito: false,
       },
         {
+          id: 1,
           nome: "Pepe",
           telefono: "64739375475",
           correo: "pepesito@gmail.com",
@@ -29,6 +33,21 @@ export default {
     añadir() {
       this.text += '!';
     },
+    ponerFav(id) {
+      this.info[id].favorito = !this.info[id].favorito;
+    },
+    engadirNuevo(nome, telefono, correo) { 
+      this.info.push({
+        id: this.info.length,
+        nome: nome,
+        telefono: telefono,
+        correo: correo,
+        favorito: false,
+      });
+    },
+    eliminar(id) {
+      this.info = this.info.filter(contact => contact.id !== id);
+    }
   },
 }
 </script>
@@ -46,11 +65,19 @@ export default {
     <p>---------------------------------------------------</p>
 
     <Contact v-for="infoDetails in info" 
-      :key="infoDetails.id"
+      :id="infoDetails.id"
       :nome="infoDetails.nome"
       :telefono="infoDetails.telefono"
       :correo="infoDetails.correo"
-      :favorito="infoDetails.favorito"/>
+      :favorito="infoDetails.favorito"
+      @engadirFav="ponerFav"
+      @eliminarContacto="eliminar"/>
+
+    <p>---------------------------------------------------</p>
+
+    <h2>Añadir Contacto</h2>
+
+    <Formulario @nuevoContacto="engadirNuevo"/>
 
   </div>
 </template>

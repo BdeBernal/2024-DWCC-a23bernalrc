@@ -13,6 +13,7 @@ export default {
     },
   },
   props: {
+    id: Number,
     nome: String,
     telefono: Number,
     correo: String,
@@ -24,11 +25,12 @@ export default {
 <template>
     <div>
       <div>
-        <h2>{{ nome }}</h2>
+        <h2 @click="$emit('engadirFav', id)">{{ nome }}{{ favorito ? '⭐' : '☆' }}</h2>
       </div>
       <p v-if="oculto">{{ telefono }}</p>
       <p v-if="oculto">{{ correo }}</p>
       <button @click="mostrar">{{ funcion }}</button>
+      <button @click="$emit('eliminarContacto', id)">Eliminar</button>
     </div>
 </template>
 
