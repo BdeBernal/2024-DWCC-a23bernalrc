@@ -1,5 +1,4 @@
 <script>
-import Formulario from './components/Formulario.vue';
 
 export default {
   data() {
