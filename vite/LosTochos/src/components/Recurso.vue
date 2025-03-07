@@ -1,27 +1,26 @@
 <script>
 
 export default {
+  inject: ['webs'],
   components: {
   },
   data() {
     return {
+      webs: this.webs
     }
-    },
-    props: {
-        id: Number,
-        titulo: String,
-        descripcion: String,
-        url: String,
   }
 }
 </script>
 
 <template>
-  <h2>{{ titulo }}</h2>
-  <p>{{ descripcion }}</p>
-  <a :href="url" target="_blank">Saber más</a>
-  <p class="eliminar" @click="$emit('eliminar', id)">Eliminar</p>
-  <br>
+  <div v-for="web in webs" >
+    <h2>{{ web.titulo }}</h2>
+    <p>{{ web.descripcion }}</p>
+    <a :href="web.url" target="_blank">Saber más</a>
+    <p class="eliminar" @click="$emit('eliminar', web.id)">Eliminar</p>
+    <br>
+  </div>
+  
 </template>
 
 <style>

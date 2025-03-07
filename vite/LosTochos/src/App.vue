@@ -1,7 +1,13 @@
 <script>
 import Recurso from './components/Recurso.vue'
 import GenerarNuevo from './components/GenerarNuevo.vue';
+
 export default {
+  provide() {
+    return {
+      webs: this.webs
+    }
+  },
   components: {
     Recurso,
     GenerarNuevo,
@@ -20,6 +26,17 @@ export default {
     eliminarWeb(id) {
       const este = this.webs.findIndex(i => i.id === id);
       this.webs.splice(este, 1);
+    },
+    añadirWeb(titulo, descripcion, url) {
+      let ultimo = this.webs.length + 1
+      let nuevo = {
+        "id": ultimo,
+        "titulo": titulo,
+        "descripcion": descripcion,
+        "url": url
+      };
+      this.webs.push(nuevo);
+      this.currentTab = 'Recurso';
     }
   }
 }
@@ -35,14 +52,10 @@ export default {
     >
     {{ tab }}
     </button>
-
+    <br>
     <component :is="currentTab"
-      v-for="web in webs" 
-      :id="web.id"
-      :titulo="web.titulo"
-      :descripcion="web.descripcion"
-      :url="web.url"
       @eliminar="eliminarWeb"
+      @añadir="añadirWeb"
     />
 
   </div>
